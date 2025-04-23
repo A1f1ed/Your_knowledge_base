@@ -77,6 +77,7 @@ def run_async(coro):
 #       第三方库导入
 # ========================== #
 # 第三方库
+import chromadb
 import langchain
 langchain.verbose = False
 
@@ -162,6 +163,7 @@ except ModuleNotFoundError:
     raise ImportError("⚠️ `services/database.py` 可能不存在，请检查文件路径")
 from services.google_drive_service import GoogleDriveService
 
+from utils.imports import ConversationBufferMemory
 
 # 创建数据库表
 Base.metadata.create_all(bind=engine)
@@ -302,7 +304,7 @@ def generate_response(llm, prompt, search_results=None, source_type=None):
         
         return clean_response(response), source_documents, source_type
     except Exception as e:
-        logger.error(f"生成响应时出错: {str(e)}", exc_info=True)
+        logger.error(f"生成响应时出错:  {str(e)}", exc_info=True)
         return f"⚠️ 发生错误，无法生成回答: {str(e)}", [], source_type
 
 def format_session_state():

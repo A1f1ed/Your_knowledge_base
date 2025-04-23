@@ -59,8 +59,10 @@ def get_llm(selected_model, api_key=None):
 
 def check_ollama_status():
     """检查Ollama服务状态"""
+    session = requests.Session()
+    session.trust_env = False  # 禁用系统代理
     try:
-        response = requests.get(f"{OLLAMA_URL}/api/tags")
+        response = session.get(f"{OLLAMA_URL}/api/tags")
         status = response.status_code == 200
         print(f"DEBUG: Ollama status check: {status}")  # 调试信息
         return status
@@ -70,8 +72,10 @@ def check_ollama_status():
 
 def get_available_ollama_models():
     """获取可用的Ollama模型列表"""
+    session = requests.Session()
+    session.trust_env = False  # 禁用系统代理
     try:
-        response = requests.get(f"{OLLAMA_URL}/api/tags")
+        response = session.get(f"{OLLAMA_URL}/api/tags")
         if response.status_code == 200:
             models = response.json().get('models', [])
             model_names = [model['name'] for model in models]

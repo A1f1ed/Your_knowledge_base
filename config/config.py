@@ -22,6 +22,8 @@ KNOWLEDGE_BASE_PATH = Path("data_base/knowledge_db")
 
 # API配置
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")  
+# OLLAMA_URL = os.getenv("OLLAMA_URL")  
+# OLLAMA_URL = "http://127.0.0.1:11434"
 ZHIPUAI_API_KEY = os.getenv('ZHIPUAI_API_KEY')
 
 

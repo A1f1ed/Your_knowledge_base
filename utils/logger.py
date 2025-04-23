@@ -16,7 +16,7 @@ log_file = log_dir / f"app_{datetime.now().strftime('%Y%m%d')}.log"
 
 # 配置日志处理器
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format=log_format,
     datefmt=date_format,
     handlers=[
