@@ -166,8 +166,8 @@ yarl==1.18.3
 yfinance==0.2.3
 # zhipuai==1.0.7
 zhipuai > 2.0.0
-PyJWT
+PyJWT == 2.8.0
 zipp==3.21.0
 zstandard==0.23.0
 unstructured==0.17.2
-markdown==3.8
+markdown
