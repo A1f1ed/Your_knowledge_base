@@ -169,3 +169,5 @@ zhipuai > 2.0.0
 PyJWT
 zipp==3.21.0
 zstandard==0.23.0
+unstructured==0.17.2
+markdown==3.8
